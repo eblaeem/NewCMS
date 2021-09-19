@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DataLayer.PageGroup>
+
+@{ 
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="dataTables_wrapper container-fluid dt-bootstrap4">
+
+    <a class="btn btn-primary" asp-action="Create" asp-area="Admin" asp-controller="PageGroup">ثبت جدید</a>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-bordered table-striped">
+
+                <thead>
+                    <tr role="row" class="odd">
+                        <th class="sorting_1">@Html.DisplayNameFor(model => model.Title)</th>
+                        <th>عملیات</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr role="row" class="odd">
+                            <td>@item.Title</td>
+                            <td>
+                                <a class="btn btn-sm btn-info fa fa-info" title="جزئیات" href="/admin/pagegroup/Details/@item.Id"> </a>
+                                <a class="btn btn-sm btn-warning fa fa-edit" title="ویرایش" href="/admin/pagegroup/Edit/@item.Id"> </a>
+                                <a class="btn btn-sm btn-danger fa fa-trash" title="حذف" href="/admin/pagegroup/delete/@item.Id"> </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
