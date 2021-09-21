@@ -42,7 +42,7 @@
                 <span asp-validation-for="@Model.UploadImage" class="text-danger"></span>
                 @if (Model.ImageName != null)
                 {
-                    <img src="~/PageImages/@Model.ImageName"/>
+                    <img src='@Url.Action( "ShowImage", "Tools", new { guid = Model.ImageName, area = "" })' /> 
                 }
             </div>
 

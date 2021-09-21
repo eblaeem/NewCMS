@@ -1,136 +1,244 @@
-﻿
-@{
-
-    Layout = null;
-}
-
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>پنل مدیریت</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link href="~/css/adminlte.min.css" rel="stylesheet" />
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <!-- bootstrap rtl -->
-    <link href="~/css/bootstrap-rtl.min.css" rel="stylesheet" />
-    <!-- template rtl version -->
-    <link href="~/css/custom-style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="keywords" content="admin">
+    <meta name="author" content="E.Ebrahimi">
+    <link href="~/Admin/fonts/feather/feather.min.css" rel="stylesheet" />
+    <link href="~/Admin/fonts/simple-line-icons/simple-line-icons.css" rel="stylesheet" />
+    <link href="~/Admin/fonts/font-awesome/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Admin/css/app.css" rel="stylesheet" />
+    
 </head>
 
-<body class="hold-transition sidebar-mini">
-    <!-- Site wrapper -->
+<body data-col="2-columns" class=" 2-columns ">
+
+    <!--MainBody ------------------------>
+
     <div class="wrapper">
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
-            <!-- Left navbar links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../../index3.html" class="nav-link">خانه</a>
-                </li>
-            </ul>
-
-            <!-- SEARCH FORM -->
-            <form class="form-inline ml-3">
-                <div class="input-group input-group-sm">
-                    <input class="form-control form-control-navbar" type="search" placeholder="جستجو" aria-label="Search">
-                </div>
-            </form>
-        </nav>
-        <!-- /.navbar -->
-        <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
-            <a href="../../index3.html" class="brand-link">
-                <span class="brand-text font-weight-light">پنل مدیریت</span>
-            </a>
-
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <div>
-                    <!-- Sidebar user panel (optional) -->
-                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                        <div class="image">
-                            <img src="https://www.gravatar.com/avatar/52f0fbcbedee04a121cba8dad1174462?s=200&d=mm&r=g" class="img-circle elevation-2" alt="User Image">
+        <div data-active-color="white" data-background-color="black" data-image="~/Admin/img/sidebar-bg/01.jpg" class="app-sidebar">
+            <div class="sidebar-header">
+                <div class="logo clearfix">
+                    <a href="index-2.html" class="logo-text float-right">
+                        <div class="logo-img">
+                            <img src="~/Admin/img/logo.png" alt="" />
                         </div>
-                        <div class="info">
-                            <a href="#" class="d-block">ابراهیم ابراهیمی</a>
-                        </div>
-                    </div>
-
-                    <!-- Sidebar Menu -->
-                    <nav class="mt-2">
-                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                            <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fa fa-dashboard"></i>
-                                    <p>
-                                        داشبوردها
-                                        <i class="right fa fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="../../index.html" class="nav-link">
-                                            <i class="fa fa-circle-o nav-icon"></i>
-                                            <p>داشبورد اول</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../index2.html" class="nav-link">
-                                            <i class="fa fa-circle-o nav-icon"></i>
-                                            <p>داشبورد دوم</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../index3.html" class="nav-link">
-                                            <i class="fa fa-circle-o nav-icon"></i>
-                                            <p>داشبورد سوم</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!-- /.sidebar-menu -->
+                        <span class="text align-middle">CONVEX</span>
+                    </a>
                 </div>
             </div>
-            <!-- /.sidebar -->
-        </aside>
-
-        <div class="content-wrapper">
-            <section class="content mt-3">
-                <div class="card p-2" style="min-height:820px;">
-                    @RenderBody()
+            <div class="sidebar-content">
+                <div class="nav-container">
+                    <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+                        <li class="nav-item">
+                            <a href="#">
+                                <i class="icon-home"></i>
+                                <span class="menu-title">داشبورد</span>
+                            </a>
+                        </li>
+                        <li class="has-sub nav-item">
+                            <a href="#">
+                                <i class="icon-users"></i>
+                                <span data-i18n="" class="menu-title">مدیریت کاربران</span>
+                                <span class="tag badge badge-pill badge-danger mt-1">2</span>
+                            </a>
+                            <ul>
+                                <li class="active">
+                                    <a href="~/AdminTemplate/users/index" class="menu-item">لیست کاربران</a>
+                                </li>
+                                <li>
+                                    <a href="~/AdminTemplate/users/create" class="menu-item">ایجاد کاربر جدید</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-                <!-- Default box -->
-            </section>
-            <!-- /.content -->
+            </div>
+            <div class="sidebar-background"></div>
         </div>
-        <!-- /.content-wrapper -->
-    </div>
-    <footer class="main-footer">
-        <strong class="d-flex justify-content-end">پیاده سازی توسط: شرکت ایبلائیم پرداز نوین</strong>
-    </footer>
 
-    <!-- jQuery -->
-    <script src="~/js/jquery-3.6.0.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="~/js/bootstrap.bundle.js"></script>
-    <!-- AdminLTE App -->
-    <script src="~/js/adminlte.min.js"></script>
+        <nav class="navbar navbar-expand-lg navbar-light bg-faded">
+            <div class="container-fluid d-flex justify-content-lg-end">
+                <div class="navbar-container">
+                    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                        <ul class="navbar-nav">
+                            <li class="nav-item mt-1 navbar-search text-left">
+                                @*<form role="search" class="navbar-form navbar-right">
+                                        <partial name="_SearchBox" model="Model">
+                                    </form>*@
+                            </li>
+                            <li class="dropdown nav-item mt-1">
+                                <a id="dropdownBasic2" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-toggle">
+                                    <i class="ft-bell blue-grey darken-4"></i>
+                                    <span class="notification badge badge-pill badge-danger">4</span>
+                                    <p class="d-none">اطلاعیه</p>
+                                </a>
+                                <div class="notification-dropdown dropdown-menu dropdown-menu-left">
+                                    <div class="arrow_box_right">
+                                        <div class="noti-list">
+                                            <a class="dropdown-item noti-container py-2">
+                                                <i class="ft-share info float-right d-block font-medium-4 mt-2 ml-2"></i>
+                                                <span class="noti-wrapper">
+                                                    <span class="noti-title line-height-1 d-block text-bold-400 info">سفارش جدید دریافت شده</span>
+                                                    <span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span>
+                                                </span>
+                                            </a>
+                                            <a class="dropdown-item noti-container py-2">
+                                                <i class="ft-save warning float-right d-block font-medium-4 mt-2 ml-2"></i>
+                                                <span class="noti-wrapper">
+                                                    <span class="noti-title line-height-1 d-block text-bold-400 warning">کاربر جدید ثبت شده است</span>
+                                                    <span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span>
+                                                </span>
+                                            </a>
+                                            <a class="dropdown-item noti-container py-2">
+                                                <i class="ft-repeat danger float-right d-block font-medium-4 mt-2 ml-2"></i>
+                                                <span class="noti-wrapper">
+                                                    <span class="noti-title line-height-1 d-block text-bold-400 danger">سفارش جدید دریافت شده</span>
+                                                    <span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span>
+                                                </span>
+                                            </a>
+                                            <a class="dropdown-item noti-container py-2">
+                                                <i class="ft-shopping-cart success float-right d-block font-medium-4 mt-2 ml-2"></i>
+                                                <span class="noti-wrapper">
+                                                    <span class="noti-title line-height-1 d-block text-bold-400 success">مورد جدید در سبد خرید شما</span>
+                                                    <span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span>
+                                                </span>
+                                            </a>
+                                            <a class="dropdown-item noti-container py-2">
+                                                <i class="ft-heart info float-right d-block font-medium-4 mt-2 ml-2"></i>
+                                                <span class="noti-wrapper">
+                                                    <span class="noti-title line-height-1 d-block text-bold-400 info">فروش جدید</span>
+                                                    <span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span>
+                                                </span>
+                                            </a>
+                                            <a class="dropdown-item noti-container py-2">
+                                                <i class="ft-box warning float-right d-block font-medium-4 mt-2 ml-2"></i>
+                                                <span class="noti-wrapper">
+                                                    <span class="noti-title line-height-1 d-block text-bold-400 warning">سفارش تحویل داده شده</span>
+                                                    <span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <a class="noti-footer primary text-center d-block border-top border-top-blue-grey border-top-lighten-4 text-bold-400 py-1">خواندن همه اعلان ها</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dropdown nav-item mr-0">
+                                <a id="dropdownBasic3" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-user-link dropdown-toggle">
+                                    <span class="avatar avatar-online">
+                                        <img id="navbar-avatar" src="~/Admin/img/portrait/small/4.jpg" alt="avatar" />
+                                    </span>
+                                    <p class="d-none">تنظیمات کاربر</p>
+                                </a>
+                                <div aria-labelledby="dropdownBasic3" class="dropdown-menu dropdown-menu-left">
+                                    <div class="arrow_box_right">
+                                        <a href="javascript:;" class="dropdown-item py-1">
+                                            <i class="ft-settings ml-2"></i>
+                                            <span>پروفایل من</span>
+                                        </a>
+                                        <div class="dropdown-divider">
+                                        </div>
+                                        <a href="javascript:;" class="dropdown-item">
+                                            <i class="ft-power ml-2"></i>
+                                            <span>خروج</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="main-panel">
+            <div class="main-content">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <!--OptionsNav ------------------------>
+
+    <div class="customizer border-left-blue-grey border-left-lighten-4 d-none d-sm-none d-md-block">
+        <a class="customizer-close">
+            <i class="ft-x font-medium-3"></i>
+        </a>
+        <a id="customizer-toggle-icon" class="customizer-toggle bg-danger">
+            <i class="ft-settings font-medium-4 fa fa-spin white align-middle"></i>
+        </a>
+        <div data-ps-id="df6a5ce4-a175-9172-4402-dabd98fc9c0a" class="customizer-content p-3 ps-container ps-theme-dark">
+            <h4 class="mb-0 text-bold-400">ساخت تم سفارشی</h4>
+
+            <hr>
+
+            <h6 class="text-center text-bold-500 mb-3 text-uppercase">انتخاب تصویر پس زمینه</h6>
+
+            <div class="cz-bg-image row">
+                <div class="col mb-3"><img src="~/Admin/img/sidebar-bg/01.jpg" width="50" height="100" alt="Bg image1" class="rounded box-shadow-2"></div>
+                <div class="col mb-3"><img src="~/Admin/img/sidebar-bg/02.jpg" width="50" height="100" alt="Bg image2" class="rounded box-shadow-2"></div>
+                <div class="col mb-3"><img src="~/Admin/img/sidebar-bg/03.jpg" width="50" height="100" alt="Bg image3" class="rounded box-shadow-2"></div>
+                <div class="col mb-3"><img src="~/Admin/img/sidebar-bg/04.jpg" width="50" height="100" alt="Bg image4" class="rounded box-shadow-2"></div>
+                <div class="col mb-3"><img src="~/Admin/img/sidebar-bg/05.jpg" width="50" height="100" alt="Bg image5" class="rounded box-shadow-2"></div>
+                <div class="col mb-3"><img src="~/Admin/img/sidebar-bg/06.jpg" width="50" height="100" alt="Bg image6" class="rounded box-shadow-2"></div>
+                <div class="col mb-3"><img src="~/Admin/img/sidebar-bg/07.jpg" width="50" height="100" alt="Bg image7" class="rounded box-shadow-2"></div>
+                <div class="col mb-3"><img src="~/Admin/img/sidebar-bg/08.jpg" width="50" height="100" alt="Bg image8" class="rounded box-shadow-2"></div>
+            </div>
+
+            <hr>
+
+            <div class="togglebutton">
+                <div class="switch">
+                    <span class="text-bold-400">نمایش / عدم نمایش نوار کناری پس زمینه تصویر</span>
+                    <div class="float-left">
+                        <div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                            <input id="sidebar-bg-img" type="checkbox" checked="" class="custom-control-input cz-bg-image-display">
+                            <label for="sidebar-bg-img" class="custom-control-label"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <h6 class="text-center text-bold-500 mb-3 text-uppercase">رنگ نوار کناری</h6>
+
+            <div class="cz-bg-color">
+                <div class="row p-1">
+                    <div class="col mb-3"><span style="width:50px; height:100px;" data-bg-color="aqua-marine" class="gradient-aqua-marine d-block rounded box-shadow-2"></span></div>
+                    <div class="col mb-3"><span style="width:50px; height:100px;" data-bg-color="sublime-vivid" class="gradient-sublime-vivid d-block rounded box-shadow-2"></span></div>
+                    <div class="col mb-3"><span style="width:50px; height:100px;" data-bg-color="crystal-clear" class="gradient-crystal-clear d-block rounded box-shadow-2"></span></div>
+                    <div class="col mb-3"><span style="width:50px; height:100px;" data-bg-color="timber" class="gradient-timber d-block rounded box-shadow-2"></span></div>
+                </div>
+                <div class="row p-1">
+                    <div class="col mb-3"><span style="width:50px; height:100px;" data-bg-color="black" class="bg-black d-block rounded box-shadow-2"></span></div>
+                    <div class="col mb-3"><span style="width:50px; height:100px;" data-bg-color="white" class="bg-white d-block rounded box-shadow-2"></span></div>
+                    <div class="col mb-3"><span style="width:50px; height:100px;" data-bg-color="primary" class="bg-primary d-block rounded box-shadow-2"></span></div>
+                    <div class="col mb-3"><span style="width:50px; height:100px;" data-bg-color="danger" class="bg-danger d-block rounded box-shadow-2"></span></div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="togglebutton">
+                <div class="switch">
+                    <span class="text-bold-400">پیاده سازی شده توسط: ابراهیم ابراهیمی</span>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+
+    <script src="~/Admin/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Admin/js/bootstrap.min.js"></script>
+    <script src="~/Admin/js/notification-sidebar.js"></script>
+    <script src="~/Admin/js/customizer.js"></script>
+
 </body>
 </html>
 

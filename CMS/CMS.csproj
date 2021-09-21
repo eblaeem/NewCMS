@@ -33,6 +33,8 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="PageImages\" />
+    <Folder Include="wwwroot\Admin\js\" />
+    <Folder Include="wwwroot\Admin\fonts\" />
     <Folder Include="wwwroot\fonts\" />
   </ItemGroup>
 

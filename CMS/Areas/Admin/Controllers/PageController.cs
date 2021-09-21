@@ -137,13 +137,15 @@ namespace CMS.Areas.Admin.Controllers
                     ShortDescription = request.ShortDescription,
                     Text = request.Text,
                     ShowInSlideshow = request.ShowInSlideshow,
-                    CreateDate = DateTime.Now
+                    ImageName = request.ImageName,
+                    CreateDate = DateTime.Now,
                 };
                 var uploadImage = request.UploadImage;
                 if (uploadImage != null )
                 {
                     if (request.UploadImage != null)
                     {
+                        page.ImageName = Guid.NewGuid().ToString() + Path.GetExtension(uploadImage.FileName);
                         string contentRootPath = _environment.ContentRootPath;
                         string path = Path.Combine(contentRootPath, "PageImages", uploadImage.FileName);
                         System.IO.File.Delete(path);

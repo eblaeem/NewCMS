@@ -49,8 +49,9 @@
                     @foreach (var item in Model)
                     {
                         <tr role="row" class="odd">
-                            <td>
-                                <img src="../PageImages/@item.ImageName" class="img-thumbnail" />
+                            <td class="d-flex justify-content-center">
+                                <img src='@Url.Action( "ShowImage", "Tools", new { guid = item.ImageName, area = "" })' 
+                                     class="rounded-circle" style="width:30px"/>
                             </td>
 
                             <td>
