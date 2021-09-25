@@ -1,0 +1,204 @@
+.success-popup {
+    transition: .3s ease all;
+}
+
+    .success-popup p {
+        font-size: 17px;
+        font-family: 'BYekan';
+        white-space: pre-line;
+    }
+
+.error-message {
+    font-size: 14px !important;
+    color: red;
+}
+
+.p-message {
+    font-size: 15px !important;
+}
+
+.Loading * {
+    pointer-events: none;
+}
+
+.Loading {
+    cursor: wait;
+}
+
+.ReadOnlySelect {
+    background-color: #eee !important;
+    opacity: 1;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+pre {
+    background-color: inherit !important;
+    font-family: inherit;
+    /*max-width: 325px;*/
+    padding: 1px 0px;
+    max-height: 50px;
+}
+
+.file {
+    visibility: hidden;
+    position: absolute;
+}
+
+.ui-autocomplete {
+    position: absolute;
+    z-index: 1000;
+    cursor: default;
+    padding: 0;
+    margin-top: 2px;
+    list-style: none;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    overflow: auto;
+    max-height: 150px !important;
+}
+
+    .ui-autocomplete > li {
+        padding: 3px 5px;
+    }
+
+        .ui-autocomplete > li.ui-state-focus {
+            background-color: #DDD;
+        }
+
+.ui-helper-hidden-accessible {
+    display: none;
+}
+
+.Number-Input {
+    direction: ltr;
+}
+
+.arrowSelect {
+    background-color: #eee !important;
+    border-top-left-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+}
+
+.EventType {
+    border: 1px solid #dac9c9;
+    border-radius: 6px;
+    padding: 2px 0px 1px 6px;
+    background-color: #dddde0;
+    cursor: pointer;
+    color: #293157;
+}
+
+.RequireField {
+    font-size: 7pt;
+    color: #ed7d35 !important;
+}
+
+.ExtraInfo:after {
+    /*display: block;*/
+    content: "\A";
+    white-space: pre;
+}
+
+.Percentage {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.NotClick {
+    cursor: not-allowed;
+}
+
+    .NotClick li, .NotClick a {
+        pointer-events: none;
+    }
+
+.margin-l-20 {
+    margin-left: 20px;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .pan {
+        width: 22% !important;
+    }
+
+    .CD {
+        width: 25% !important;
+    }
+}
+
+@media only screen and (min-device-width : 480px) and (max-device-width : 640px) {
+    .pan {
+        width: 10% !important;
+    }
+
+    .CD {
+        width: 14% !important;
+    }
+}
+
+@media only screen and (min-device-width : 640px) and (max-device-width : 800px) {
+    .pan {
+        width: 8% !important;
+    }
+
+    .CD {
+        width: 12% !important;
+    }
+}
+
+@media only screen and (min-device-width : 800px) and (max-device-width : 920px) {
+    .pan {
+        width: 8% !important;
+    }
+
+    .CD {
+        width: 11% !important;
+    }
+}
+
+@media only screen and (min-device-width : 920px) and (max-device-width : 1040px) {
+    .pan {
+        width: 9% !important;
+    }
+
+    .CD {
+        width: 12% !important;
+    }
+}
+
+@media only screen and (min-device-width : 1040px) and (max-device-width : 1160px) {
+    .pan {
+        width: 7% !important;
+    }
+
+    .CD {
+        width: 11% !important;
+    }
+}
+
+@media only screen and (min-device-width : 1160px) and (max-device-width : 1280px) {
+    .pan {
+        width: 6% !important;
+    }
+
+    .CD {
+        width: 9% !important;
+    }
+}
+
+@media only screen and (min-device-width : 1280px) {
+    .pan {
+        width: 5% !important;
+    }
+
+    .CD {
+        width: 6% !important;
+    }
+}

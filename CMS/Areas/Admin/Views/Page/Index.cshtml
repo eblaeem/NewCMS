@@ -4,85 +4,103 @@
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-<div class="dataTables_wrapper container-fluid dt-bootstrap4">
 
-    <a class="btn btn-primary" asp-action="Create" asp-area="Admin" asp-controller="Page">ثبت جدید</a>
+@*@section styles
+{
+    <link href="~/Admin/css/jsgrid/jsgrid-theme.min.css" rel="stylesheet" />
+    <link href="~/Admin/css/jsgrid/jsgrid.min.css" rel="stylesheet" />
+}*@
 
-    <div class="row">
-        <div class="col-sm-12">
-            <table class="table table-bordered table-striped">
-                <thead>
-                    <tr role="row" class="odd">
-                        <th>
-                            @Html.DisplayNameFor(model => model.ImageName)
-                        </th>
+<a class="btn btn-primary" asp-action="Create" asp-area="Admin" asp-controller="Page">ثبت جدید</a>
 
-                        <th>
-                            @Html.DisplayNameFor(model => model.Title)
-                        </th>
+<div id="basicgrid">
+    <div class="">
+        <table class="table table-striped table-hover">
+            <tr role="row" class="odd">
+                <th>
+                    @Html.DisplayNameFor(model => model.ImageName)
+                </th>
 
-                        <th>
-                            @Html.DisplayNameFor(model => model.Text)
-                        </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Text)
+                </th>
 
 
-                        <th>
-                            @Html.DisplayNameFor(model => model.VisitNumber)
-                        </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VisitNumber)
+                </th>
 
-                        <th>
-                            @Html.DisplayNameFor(model => model.ShowInSlideshow)
-                        </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ShowInSlideshow)
+                </th>
 
-                        <th>
-                            @Html.DisplayNameFor(model => model.CreateDate)
-                        </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </th>
 
-                        <th>
-                            عملیات
-                        </th>
+                <th class="">
+                    عملیات
+                </th>
 
-                    </tr>
-                </thead>
-
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr role="row" class="odd">
-                            <td class="d-flex justify-content-center">
-                                <img src='@Url.Action( "ShowImage", "Tools", new { guid = item.ImageName, area = "" })' 
-                                     class="rounded-circle" style="width:30px"/>
-                            </td>
-
-                            <td>
-                                @item.Title
-                            </td>
-
-                            <td>
-                                @item.Text
-                            </td>
-
-                            <td>
-                                @item.VisitNumber
-                            </td>
-
-                            <td>
-                                @item.ShowInSlideshow
-                            </td>
-
-                            <td>
-                                @item.CreateDate.ToShamsi()
-                            </td>
-
-                            <td>
-                                <a class="btn btn-sm btn-info fa fa-info" title="جزئیات" href="/admin/page/Details/@item.Id"> </a>
-                                <a class="btn btn-sm btn-warning fa fa-edit" title="ویرایش" href="/admin/page/Edit/@item.Id"> </a>
-                                <a class="btn btn-sm btn-danger fa fa-trash" title="حذف" href="/admin/page/delete/@item.Id"> </a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+            </tr>
+        </table>
     </div>
+    <div class="">
+        <table class="table table-striped table-hover">
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr role="row" class="odd">
+                        <td class="d-flex justify-content-center">
+                            <img src='@Url.Action( "ShowImage", "Tools", new { guid = item.ImageName, area = "" })'
+                                 class="rounded-circle" style="width:30px" />
+                        </td>
+
+                        <td>
+                            @item.Title
+                        </td>
+
+                        <td>
+                            @item.Text
+                        </td>
+
+                        <td>
+                            @item.VisitNumber
+                        </td>
+
+                        <td>
+                            @item.ShowInSlideshow
+                        </td>
+
+                        <td>
+                            @item.CreateDate.ToShamsi()
+                        </td>
+
+                        <td>
+                            <a class="btn btn-sm btn-info bi bi-info" title="جزئیات" href="/admin/page/Details/@item.Id"> </a>
+                            <a class="btn btn-sm btn-warning bi bi-pencil-square" title="ویرایش" href="/admin/page/Edit/@item.Id"> </a>
+                            <a class="btn btn-sm btn-danger bi bi-x" title="حذف" href="/admin/page/delete/@item.Id"> </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+
 </div>
+
+
+@section scripts
+{
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js" asp-append-version="true"></script>
+    @*<script src="~/Admin/js/jsgrid/jsgrid.min.js" asp-append-version="true"></script>
+    <script src="~/Admin/js/jsgrid/js-grid-init.js" asp-append-version="true"></script>*@
+}
+
+
