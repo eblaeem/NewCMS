@@ -46,7 +46,12 @@ namespace DataLayer
 
         public virtual PageGroup PageGroup { get; set; }
 
-        public virtual ICollection<PageComment> PageComments { get; set; }
+        private ICollection<PageComment> _pageComments;
+        public virtual ICollection<PageComment> PageComments
+        {
+            get => _pageComments ??= new HashSet<PageComment>();
+            set => _pageComments = value;
+        }
 
     }
 }

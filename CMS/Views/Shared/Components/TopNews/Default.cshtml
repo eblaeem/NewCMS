@@ -1,0 +1,23 @@
+﻿@model IEnumerable<DataLayer.Page>
+
+<section class="last-news-side border-radius">
+    <header>
+        <i class="bi bi-stars"></i>
+        <h3>پربازدید ترین اخبار</h3>
+    </header>
+
+    <ul>
+        @foreach (var item in Model)
+        {
+        <li>
+            <img src="~/PageImages/@item.ImageName" alt="تصویر خبر" />
+            <h2>
+                <a asp-controller="News" asp-action="ShowNews" asp-route-id="@item.Id">@item.Title</a>
+            </h2>
+            <span>تاریخ انتشار: @item.CreateDate.ToShamsi()</span>
+        </li>
+        }
+    </ul>
+
+
+</section>

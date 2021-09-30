@@ -1,0 +1,21 @@
+﻿@model IEnumerable<DataLayer.ShowGroupViewModel>
+
+<section class="category-section border-radius">
+    <header>
+        <i class="bi bi-folder2-open"></i>
+        <h3> دسته بندی ها </h3>
+    </header>
+    <ul>
+
+        @foreach (var item in Model)
+        {
+            <li>
+                <a asp-controller="news" asp-action="ShowNewsByGroupId" asp-route-id="@item.GroupId">
+                    @item.GroupTitle
+                    <span>@item.PageCount</span>
+                </a>
+            </li>
+        }
+
+    </ul>
+</section>

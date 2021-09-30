@@ -10,10 +10,10 @@ namespace CMS
             PersianCalendar pc = new();
             return pc.GetYear(value) + "/"
                     + pc.GetMonth(value).ToString("00") + "/"
-                    + pc.GetDayOfMonth(value).ToString("00")
-                    + pc.GetHour(value).ToString("00") + ":"
-                    + pc.GetMinute(value).ToString("00") + ":"
-                    + pc.GetSecond(value).ToString("00");
+                    + pc.GetDayOfMonth(value).ToString("00");
+                    //+ pc.GetHour(value).ToString("00") + ":"
+                    //+ pc.GetMinute(value).ToString("00") + ":"
+                    //+ pc.GetSecond(value).ToString("00");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer
@@ -86,6 +87,14 @@ namespace DataLayer
             _db.Dispose();
         }
 
-
+        public IEnumerable<ShowGroupViewModel> ShowGroupViews()
+        {
+            return _db.PageGroups.Select(P => new ShowGroupViewModel()
+            {
+                GroupId = P.Id,
+                GroupTitle = P.Title,
+                PageCount = P.Pages.Count
+            });
+        }
     }
 }

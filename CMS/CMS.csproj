@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+	  <LangVersion>latest</LangVersion>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
     <UserSecretsId>faf5018f-8a5b-42a7-a9fc-f7fb68710870</UserSecretsId>
   </PropertyGroup>
@@ -67,7 +68,9 @@
 
 
   <ItemGroup>
-    <Folder Include="wwwroot\js\" />
+    <Folder Include="wwwroot\fonts\" />
+    <Folder Include="wwwroot\lib\" />
+    <Folder Include="wwwroot\PageImages\" />
   </ItemGroup>
 
 

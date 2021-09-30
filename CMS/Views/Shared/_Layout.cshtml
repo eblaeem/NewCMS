@@ -1,48 +1,135 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿
+
+<!DOCTYPE html>
+<html class="no-js" dir="rtl" lang="fa-IR">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CMS</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <meta charset="UTF-8">
+    <title> سایت خبری</title>
+    <base href="">
+    <meta name="googlebot" content="index,follow">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="~/styles.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Splide('.splide').mount();
+        });
+    </script>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CMS</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+
+    <!-- Top Menu -->
+    <div class="top-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-5">
+                    <ul>
+                        <li><a href=""><i class="bi bi-house"></i></a></li>
+                        <li><a href=""><i class="bi bi-question-diamond"></i></a></li>
+                        <li><a href=""><i class="bi bi-envelope"></i></a></li>
                     </ul>
                 </div>
+                <div class="col-md-6 col-sm-6 col-xs-7">
+                    <span>امروز : @DateTime.Now.ToShamsi()</span>
+                </div>
             </div>
-        </nav>
+        </div>
+    </div>
+    <!-- End Top Menu -->
+    <!-- header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <a href="" class="logo"><img src="~/img/logo.png" alt="لوگوی ابراهیم نیوز" title=""></a>
+                    <div class="left-side">
+                        <h1><a href="">سایت خبری ابراهیم نیوز</a></h1>
+                        <h2> پایگاه اطلاع رسانی و خبری</h2>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <form action="" method="get" class="border-radius">
+                        <input class="border-radius" type="text" placeholder=" جستجو کنید ... ">
+                        <button><i class="bi bi-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <!-- End Header -->
+    <!-- menu -->
+    <nav class="main-menu">
+        <div class="container">
+            <span><i class="bi bi-list bg-red"></i></span>
+            <ul>
+                <li><a asp-controller="home" asp-action="Index"> صفحه اصلی </a></li>
+                <li><a asp-controller="news" asp-action="ArchiveNews"> آرشیو خبر ها </a></li>
+                <li>
+                    @await Component.InvokeAsync("ShowGroupsInMenu")
+                </li>
+                <li><a href=""> ثبت نام </a></li>
+                <li><a href=""> ورود به سایت </a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End menu -->
+
+    <div class="container margin-top-30">
+        <div class="row">
+
+            <aside class="col-md-4 col-sm-12 col-xs-12 pull-right">
+
+                @await Component.InvokeAsync("ShowGroups")
+
+
+                @await Component.InvokeAsync("TopNews")
+            </aside>
+
+            <div class="col-md-8 col-sm-12 col-xs-12 ">
+                @RenderBody()
+            </div>
+
+
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer>
         <div class="container">
-            &copy; 2021 - CMS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row">
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <section class="access-links">
+                        <header> دسترسی سریع </header>
+                        <ul>
+                            <li><a href=""> صفحه اصلی </a></li>
+                            <li><a href=""> قوانین سایت  </a></li>
+                            <li><a href=""> راهنمای سایت  </a></li>
+                            <li><a href=""> پیوندهای سایت </a></li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="col-md-5 col-md-offset-1 col-sm-12 col-xs-12">
+                    <div class="socials">
+                        <span> شبکه های اجتماعی  سایت</span>
+                        <a href=""><i class="bi bi-facebook"></i></a>
+                        <a href=""><i class="bi bi-twitter"></i></a>
+                        <a href=""><i class="bi bi-instagram"></i></a>
+                        <a href=""><i class="bi bi-google"></i></a>
+                        <div class="clearfix"></div>
+                    </div>
+                    <p>
+                        پیاده سازی شده توسط: ابراهیم ابراهیمی
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/scripts.js"></script>
+
+    <script src="~/js/script.js"></script>
 </body>
 </html>

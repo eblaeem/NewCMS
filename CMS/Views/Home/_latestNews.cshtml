@@ -1,0 +1,31 @@
+﻿@model PageViewModel
+
+<section class="last-news-section border-radius margin-top-40">
+    <header>
+        <i class="bi bi-file-earmark-text" style="font-size:22px"></i>
+        <h3>آخرین آخبار ارسالی</h3>
+    </header>
+    <ul>
+
+        @foreach (var item in Model.LatestNews)
+        {
+            <li>
+                <img class="border-radius" src="/PageImages/@item.ImageName">
+                <h2>
+                    <a asp-controller="News" asp-action="ShowNews" asp-route-id="@item.Id"> @item.Title </a>
+                </h2>
+                <p>
+                    @item.Text
+                </p>
+                <span class="date-publish">
+                    <i class="bi bi-calendar"></i>
+                    تاریخ انتشار : @item.CreateDate.ToShamsi()
+                </span>
+                <a asp-controller="News" asp-route-id="@item.Id" class="more-link">
+                    <i class="bi bi-three-dots"></i>
+                </a>
+            </li>
+        }
+
+    </ul>
+</section>

@@ -78,8 +78,8 @@ namespace CMS.Areas.Admin.Controllers
                 if (uploadImage != null)
                 {
                     page.ImageName = Guid.NewGuid().ToString() + Path.GetExtension(uploadImage.FileName);
-                    string contentRootPath = _environment.ContentRootPath;
-                    var path = Path.Combine(contentRootPath, "PageImages", page.ImageName);
+                    string webRootPath = _environment.WebRootPath;
+                    var path = Path.Combine(webRootPath, "PageImages", page.ImageName);
                     using (Stream stream = new FileStream(path, FileMode.Create))
                     {
                         await uploadImage.CopyToAsync(stream);
@@ -146,8 +146,8 @@ namespace CMS.Areas.Admin.Controllers
                     if (request.UploadImage != null)
                     {
                         page.ImageName = Guid.NewGuid().ToString() + Path.GetExtension(uploadImage.FileName);
-                        string contentRootPath = _environment.ContentRootPath;
-                        string path = Path.Combine(contentRootPath, "PageImages", uploadImage.FileName);
+                        string webRootPath = _environment.WebRootPath;
+                        string path = Path.Combine(webRootPath, "PageImages", uploadImage.FileName);
                         System.IO.File.Delete(path);
                         page.ImageName = Guid.NewGuid().ToString() + Path.GetExtension(uploadImage.FileName);
                         using (Stream stream = new FileStream(path, FileMode.Create))
@@ -185,8 +185,8 @@ namespace CMS.Areas.Admin.Controllers
             var page = _pageRepository.GetPageById(id);
             if (page.ImageName != null)
             {
-                string contentRootPath = _environment.ContentRootPath;
-                System.IO.File.Delete(Path.Combine(contentRootPath, "PageImages", page.ImageName));
+                string webRootPath = _environment.WebRootPath;
+                System.IO.File.Delete(Path.Combine(webRootPath, "PageImages", page.ImageName));
             }
             _pageRepository.DeletePage(page);
             _pageRepository.Save();

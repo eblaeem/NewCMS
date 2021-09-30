@@ -1,0 +1,33 @@
+﻿@model PageViewModel
+
+<!-- slider -->
+<div class="news-slider splide border-radius">
+    <div id="slider-one" class="splide__track">
+        <div class="item splide__list">
+            @foreach (var item in Model.Slider)
+            {
+                <!-- each item -->
+                <div class="item splide__slide">
+                    <img src="/PageImages/@item.ImageName">
+                    <div class="splide__track">
+                        <h2 class="p-3 text-center">
+                            <a asp-controller="News" asp-action="ShowNews" asp-route-id="@item.Id">@item.Title</a>
+                        </h2>
+                        <p style="text-align: justify; direction: rtl; padding: 0 10px 0px 10px;">
+                            @item.Text
+                        </p>
+                        <span style=" direction: rtl; float: right; padding: 0 10px;">
+                            <i class="bi bi-calendar"></i>
+                            تاریخ انتشار : @item.CreateDate.ToShamsi()
+                        </span>
+                    </div>
+                </div>
+                <!-- end each item -->
+            }
+        </div>
+        
+    </div>
+    <a class="news-archive" asp-controller="news" asp-action="ArchiveNews"> <i class="bi bi-file-earmark-text"></i> آرشیو کامل خبرها </a>
+    </div>
+<!-- End slider -->
+

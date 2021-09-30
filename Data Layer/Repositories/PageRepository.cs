@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer
@@ -85,6 +86,24 @@ namespace DataLayer
             _db.Dispose();
         }
 
+        public IEnumerable<Page> TopNews(int take = 4)
+        {
+            return _db.Pages.OrderByDescending(p => p.VisitNumber).Take(take);
+        }
 
+        public IEnumerable<Page> PagesInSlider()
+        {
+            return _db.Pages.Where(P => P.ShowInSlideshow);
+        }
+
+        public IEnumerable<Page> LatestNews(int take=4)
+        {
+            return _db.Pages.OrderByDescending(p => p.CreateDate).Take(take);
+        }
+
+        public IEnumerable<Page> ShowPageById(int id)
+        {
+            return _db.Pages.Where(p => p.PageGroupId == id);
+        }
     }
 }

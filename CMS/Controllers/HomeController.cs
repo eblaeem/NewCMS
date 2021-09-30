@@ -1,37 +1,32 @@
 ﻿using CMS.Models;
+using DataLayer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace CMS.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IPageRepository _pageRepository;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IPageRepository pageRepository,ILogger<HomeController> logger)
         {
+            _pageRepository = pageRepository;
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var pages = new PageViewModel
+            {
+                Slider = _pageRepository.PagesInSlider(),
+                LatestNews = _pageRepository.LatestNews()
+            };        
+            
+            return View(pages);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }

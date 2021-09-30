@@ -16,7 +16,7 @@ namespace CMS.Controllers
         public IActionResult ShowImage(string guid)
         {
             string path = Path.Combine("PageImages", guid.ToString());
-            var fileInfo = _environment.ContentRootFileProvider.GetFileInfo(path);
+            var fileInfo = _environment.WebRootFileProvider.GetFileInfo(path);
             if (fileInfo.Exists)
             {
                return File(fileInfo.CreateReadStream(), "image/jpeg");

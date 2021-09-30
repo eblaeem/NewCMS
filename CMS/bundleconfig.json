@@ -3,7 +3,9 @@
     "outputFileName": "wwwroot/styles.css",
     "inputFiles": [
       "node_modules/bootstrap/dist/css/bootstrap.rtl.css",
-      "wwwroot/css/bootstrap-icons.css"
+      "wwwroot/css/bootstrap-icons.css",
+      "node_modules/@splidejs/splide/dist/css/splide.min.css",
+      "node_modules/@splidejs/splide/dist/css/themes/splide-default.min.css"
     ],
     "minify": {
       "enabled": true,
@@ -14,7 +16,8 @@
     "outputFileName": "wwwroot/scripts.js",
     "inputFiles": [
       "node_modules/jquery/dist/jquery.js",
-      "node_modules/bootstrap/dist/js/bootstrap.js"
+      "node_modules/bootstrap/dist/js/bootstrap.js",
+      "node_modules/@splidejs/splide/dist/js/splide.js"
     ],
     "minify": {
       "enabled": true,

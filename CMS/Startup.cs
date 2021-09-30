@@ -28,6 +28,7 @@ namespace CMS
 
             services.AddScoped<IPageGroupRepository, PageGroupRepository>();
             services.AddScoped<IPageRepository, PageRepository>();
+            services.AddScoped<IPageCommentRepository, PageCommentRepository>();
 
         }
 
@@ -57,6 +58,7 @@ namespace CMS
                 name: "admin",
                 pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
                    );
+
                 endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
@@ -64,7 +66,7 @@ namespace CMS
 
             app.UseEndpoints(endpoints =>
             {
-                
+
             });
 
         }

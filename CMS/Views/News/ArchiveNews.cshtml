@@ -1,0 +1,32 @@
+﻿@model IEnumerable<DataLayer.Page>
+
+@{
+    ViewData["Title"] = "ArchiveNews";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="last-news-section border-radius">
+    <header>
+        <i class="bi bi-file-earmark-text" style="font-size:22px"></i>
+        <h3>آرشیو خبرها</h3>
+    </header>
+
+    <ul>
+
+        @foreach (var item in Model)
+        {
+            <li>
+                <img class="border-radius" src="/PageImages/@item.ImageName">
+                <h2> <a href="/News/@item.Id"> @item.Title </a></h2>
+                <p>
+                    @item.Text
+                </p>
+                <span class="date-publish"><i class="bi bi-calendar"></i> تاریخ انتشار : @item.CreateDate.ToShamsi() </span>
+                <a class="more-link" asp-controller="news" asp-action="ArchiveNews">
+                    <i class="bi bi-three-dots"></i>
+                </a>
+            </li>
+        }
+
+    </ul>
+</section>
