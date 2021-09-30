@@ -33,6 +33,9 @@ namespace DataLayer
         [Display(Name = "آمار بازدید")]
         public int? VisitNumber { get; set; }
 
+        [Display(Name = "کلمات کلیدی")]
+        public string Tags { get; set; }
+
         [Display(Name = "نام تصویر")]
         [MaxLength(50)]
         public string ImageName { get; set; }

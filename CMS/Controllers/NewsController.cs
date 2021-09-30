@@ -37,6 +37,7 @@ namespace CMS.Controllers
         public async Task<IActionResult> ShowNews(int id)
         {
             var news = _pageRepository.GetPageById(id);
+            //var commnet = _pageCommentRepository.GetCommentByNewsId(id);
             if (news != null)
             {
                 news.VisitNumber += 1;
@@ -58,7 +59,7 @@ namespace CMS.Controllers
                 CreateDate = DateTime.Now
             };
             _pageCommentRepository.AddComment(comment);
-            return null;
+            return PartialView("_showComments");
         }
 
         public async Task<IActionResult> ShowComments(int id)

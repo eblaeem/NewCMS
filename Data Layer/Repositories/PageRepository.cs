@@ -105,5 +105,14 @@ namespace DataLayer
         {
             return _db.Pages.Where(p => p.PageGroupId == id);
         }
+
+        public IEnumerable<Page> SearchPages(string search)
+        {
+            return
+            _db.Pages.Where(P => P.Title.Contains(search) || 
+                            P.Text.Contains(search) || 
+                            P.Tags.Contains(search) || 
+                            P.ShortDescription.Contains(search)).Distinct();
+        }
     }
 }
